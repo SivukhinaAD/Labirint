@@ -1,7 +1,7 @@
 /*
  * RayWindow.cc
  *
- *  Created on: 15 дек. 2020 г.
+ *  Created on: 15 Г¤ГҐГЄ. 2020 ГЈ.
  *      Author: Anastasiya
  */
 #include <iostream>
@@ -28,14 +28,14 @@ void RayCastingWindow::render()
 
 	SDL_SetRenderDrawBlendMode(_renderer.get(), SDL_BLENDMODE_BLEND);
 
-	//Рисование стен
+	//ГђГЁГ±Г®ГўГ Г­ГЁГҐ Г±ГІГҐГ­
 	double x = _player -> x();
 	double y = _player -> y();
 
 	double pi = 3.141592653589793;
 	double FOV = pi/3;
 
-	double a = _player -> dir(); //Направление взгляда
+	double a = _player -> dir(); //ГЌГ ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ ГўГ§ГЈГ«ГїГ¤Г 
 	double sd = double(width()) / (2. * tan(FOV / 2.));
 	double e = 0.00001;
 
@@ -88,7 +88,7 @@ void RayCastingWindow::render()
 		else draw_col(col, h);
 	}
 
-	// Рисование карты
+	// ГђГЁГ±Г®ГўГ Г­ГЁГҐ ГЄГ Г°ГІГ»
 
 	SDL_SetRenderDrawColor(_renderer.get(), 255, 0, 255, 64);
 	for (int y = 0; y < _map->height(); ++y)
@@ -125,13 +125,13 @@ void RayCastingWindow::draw_col(int col, int h)
 
 void RayCastingWindow::handle_keys(const Uint8 *keys)
 {
-	if (keys[SDL_SCANCODE_W]) _player->walk_forward();
-	if (keys[SDL_SCANCODE_S]) _player->walk_backward();
-	if (keys[SDL_SCANCODE_D]) _player->shift_right();
-	if (keys[SDL_SCANCODE_A]) _player->shift_left();
-	if (keys[SDL_SCANCODE_E]) _player->turn_right();
-	if (keys[SDL_SCANCODE_Q]) _player->turn_left();
-	if (keys[SDL_SCANCODE_T]) _textured = false; else _textured = true;
+	if (keys[SDL_SCANCODE_S]) _player->walk_forward();
+	if (keys[SDL_SCANCODE_X]) _player->walk_backward();
+	if (keys[SDL_SCANCODE_Z]) _player->shift_right();
+	if (keys[SDL_SCANCODE_C]) _player->shift_left();
+	if (keys[SDL_SCANCODE_LEFT]) _player->turn_right();
+	if (keys[SDL_SCANCODE_RIGHT]) _player->turn_left();
+	if (keys[SDL_SCANCODE_Q]) _textured = false; else _textured = true;
 }
 
 void RayCastingWindow::draw_texture_col(int col, int h, double tx) {
